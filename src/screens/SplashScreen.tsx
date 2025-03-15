@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react';
-import {View, Image, StatusBar, Animated} from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Image, StatusBar, Animated } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 
 const SplashScreen = () => {
@@ -35,14 +35,14 @@ const SplashScreen = () => {
           useNativeDriver: true,
         }),
       ]),
-      {iterations: 2},
+      { iterations: 2 }
     ).start();
 
     const timer = setTimeout(() => {
       navigation.dispatch(
         CommonActions.reset({
           index: 0,
-          routes: [{name: 'Welcome'}],
+          routes: [{ name: 'Welcome' }],
         })
       );
     }, 2500);
@@ -51,21 +51,17 @@ const SplashScreen = () => {
   }, [navigation, fadeAnim, pulseAnim, scaleAnim]);
 
   const highlightStyle = {
-    transform: [{scale: pulseAnim}],
+    transform: [{ scale: pulseAnim }],
   };
 
   const logoAnimStyle = {
     opacity: fadeAnim,
-    transform: [{scale: Animated.multiply(scaleAnim, pulseAnim)}],
+    transform: [{ scale: Animated.multiply(scaleAnim, pulseAnim) }],
   };
 
   return (
     <View className="flex-1 items-center justify-center bg-amber-400">
-      <StatusBar
-        translucent
-        backgroundColor="transparent"
-        barStyle="dark-content"
-      />
+      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       <Animated.View
         className="absolute w-72 h-72 rounded-full bg-white/15"
         style={highlightStyle}
@@ -76,9 +72,7 @@ const SplashScreen = () => {
         style={highlightStyle}
       />
 
-      <Animated.View
-        style={logoAnimStyle}
-        className="items-center justify-center">
+      <Animated.View style={logoAnimStyle} className="items-center justify-center">
         <Image
           source={require('../assets/images/logo.png')}
           className="w-52 h-52"

@@ -50,3 +50,10 @@
 	<false/>
 </dict>
 </plist>
+
+<key>UIAppFonts</key>
+<array>
+    <string>MaterialCommunityIcons.ttf</string>
+    <string>FontAwesome.ttf</string>
+    <string>AntDesign.ttf</string>
+</array>
